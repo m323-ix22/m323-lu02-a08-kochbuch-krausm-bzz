@@ -10,6 +10,7 @@ def adjust_recipe(recipe, amount_people):
     ingredients = recipe["ingredients"]
     servings = recipe["servings"]
     factor = amount_people / servings
+
     for ingredient, amount in ingredients.items():
         new_ingredients[ingredient] = amount * factor
 
@@ -27,10 +28,12 @@ def load_recipe(json_recipe):
 
 if __name__ == '__main__':
     # Beispiel für die Datenstruktur eines Rezepts
-    recipe_json = '{"title": "Spaghetti Bolognese", "ingredients": {"Spaghetti": 400, "Tomato Sauce": 300, "Minced Meat": 500}, "servings": 4}'
-    python_dict = json.loads(recipe_json)
+    recipe_json = (
+        '{"title": "Spaghetti Bolognese", '
+        '"ingredients": {"Spaghetti": 400, "Tomato Sauce": 300, "Minced Meat": 500}, '
+        '"servings": 4}'
+    )
     original_recipe = load_recipe(recipe_json)
-    # Adjust the recipe for 2 people
     adjusted_recipe = adjust_recipe(original_recipe, 8)
-    print(f"Original Recipe: {original_recipe}")
-    print(f"Adjusted Recipe: {adjusted_recipe}")
+    print(f'Original Recipe: {original_recipe}')
+    print(f'Adjusted Recipe: {adjusted_recipe}')
