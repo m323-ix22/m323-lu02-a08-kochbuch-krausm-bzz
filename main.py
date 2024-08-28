@@ -7,8 +7,8 @@ import json
 
 def adjust_recipe(recipe, amount_people):
     new_ingredients = {}
-    ingredients = recipe["ingredients"]
-    servings = recipe["servings"]
+    ingredients = recipe['ingredients']
+    servings = recipe['servings']
     factor = amount_people / servings
 
     for ingredient, amount in ingredients.items():
